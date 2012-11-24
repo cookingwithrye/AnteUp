@@ -1,0 +1,1 @@
+Designed to keep track of shared/individual expenses between roommates (possible other uses as well)
