@@ -44,3 +44,5 @@ BEGIN TRANSACTION CreateDefaults
 INSERT INTO ContactMethod (
 
 COMMIT TRANSACTION CreateDefaults
+
+--test
