@@ -1,8 +1,8 @@
---creates the database tables MINUS the relationships per conventions in this project
+--creates the database tables MINUS the relationships per conventions in this project, they are created in a separate transaction
 BEGIN TRANSACTION CreateDatabaseTables
 
 --user authentication information
---TODO: direct authentication through some kind of shared account (google, facebook, etc.)
+--TODO: direct authentication through some kind of shared account (google, facebook, etc.) using OAuth
 CREATE TABLE User (
 	UserID INT NOT NULL PRIMARY KEY IDENTITY(1,1),
 	InActive BIT NOT NULL DEFAULT 0,
@@ -79,6 +79,16 @@ CREATE TABLE TransactionHistory (
 	WhoModified INT NOT NULL,		--which user modified this transaction?
 );
 
+--organization for objects in the system
+CREATE TABLE Tag (
+	TagID INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+	
+	Name NVARCHAR(50) NOT NULL,
+	ParentTagID INT DEFAULT NULL,
+	
+	IsCategory BIT NOT NULL DEFAULT 0,		--is this tag a category item?
+);
+
 COMMIT TRANSACTION CreateDatabaseTables
 
 --create relationships between tables
@@ -95,6 +105,8 @@ ALTER TABLE TransactionInvolvement ADD FOREIGN KEY UserID REFERENCES User(UserID
 
 ALTER TABLE TransactionHistory ADD FOREIGN KEY TransactionID REFERENCES Transaction(TransactionID); --transaction modifications are attached to specific transactions
 ALTER TABLE TransactionHistory ADD FOREIGN KEY WhoModified REFERENCES User(UserID);
+
+ALTER TABLE Tag ADD FOREIGN KEY ParentTagID REFERENCES Tag(TagID);	--tags can have parent tags
  
 COMMIT TRANSACTION CreateRelations
 
