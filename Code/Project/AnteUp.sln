@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnteUp", "AnteUp\AnteUp.csproj", "{08CF82E6-7ACE-4CDA-9A85-8B6D8DE1DE49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnteUp.Tests", "AnteUp.Tests\AnteUp.Tests.csproj", "{AE880478-4788-41C0-9C5E-E20A65EC0E41}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{08CF82E6-7ACE-4CDA-9A85-8B6D8DE1DE49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08CF82E6-7ACE-4CDA-9A85-8B6D8DE1DE49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08CF82E6-7ACE-4CDA-9A85-8B6D8DE1DE49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08CF82E6-7ACE-4CDA-9A85-8B6D8DE1DE49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE880478-4788-41C0-9C5E-E20A65EC0E41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE880478-4788-41C0-9C5E-E20A65EC0E41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE880478-4788-41C0-9C5E-E20A65EC0E41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE880478-4788-41C0-9C5E-E20A65EC0E41}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
