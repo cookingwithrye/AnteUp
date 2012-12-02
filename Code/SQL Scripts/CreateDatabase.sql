@@ -39,6 +39,8 @@ CREATE TABLE Household (
 	HouseID INT NOT NULL PRIMARY KEY IDENTITY(1,1),
 	
 	Name NVARCHAR(50),	--name of this household
+	
+	--TODO: add basic information about the house e.g. address, contact number etc.
 );
 
 --a tenant that is part of a household
@@ -65,6 +67,9 @@ CREATE TABLE Transaction (
 CREATE TABLE TransactionInvolvement (
 	TransactionID INT NOT NULL,
 	UserID INT NOT NULL,
+	
+	PRIMARY KEY (TransactionID, UserID),
+	
 	Percentage INT NOT NULL, --how much of this transaction is this user responsible for?
 	Paid SMALLMONEY NOT NULL, --how much did this user actually pay so far? Can exceed their required share
 );
@@ -89,6 +94,13 @@ CREATE TABLE Tag (
 	IsCategory BIT NOT NULL DEFAULT 0,		--is this tag a category item?
 );
 
+CREATE TABLE TransactionTag (
+	TransactionID INT NOT NULL,
+	TagID INT NOT NULL,
+	
+	PRIMARY KEY (TransactionID, TagID),
+);
+
 COMMIT TRANSACTION CreateDatabaseTables
 
 --create relationships between tables
@@ -107,6 +119,8 @@ ALTER TABLE TransactionHistory ADD FOREIGN KEY TransactionID REFERENCES Transact
 ALTER TABLE TransactionHistory ADD FOREIGN KEY WhoModified REFERENCES User(UserID);
 
 ALTER TABLE Tag ADD FOREIGN KEY ParentTagID REFERENCES Tag(TagID);	--tags can have parent tags
+ALTER TABLE TransactionTag ADD FOREIGN KEY TagID REFERENCES Tag(TagID);
+ALTER TABLE TransactionTag ADD FOREIGN KEY TransactionID REFERENCES Transaction(TransactionID);
  
 COMMIT TRANSACTION CreateRelations
 
