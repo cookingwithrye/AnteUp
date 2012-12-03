@@ -10,21 +10,21 @@ namespace AnteUp.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+            ViewBag.Message = "AnteUp, the simple expense tracker between roommates.";
 
             return View();
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your app description page.";
+            ViewBag.Message = "If you're reading this, you shouldn't be.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Contact page.";
 
             return View();
         }
