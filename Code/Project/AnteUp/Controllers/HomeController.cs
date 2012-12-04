@@ -10,7 +10,7 @@ namespace AnteUp.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "AnteUp, the simple expense tracker between roommates. Test script to trigger build #1";
+            ViewBag.Message = "AnteUp, the simple expense tracker between roommates. Test script to trigger build #2";
 
             return View();
         }
